@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Open message for Suprise </title>
+  <title>Propose Day Surprise</title>
 
   <style>
     body {
@@ -20,10 +20,11 @@
       overflow: hidden;
     }
 
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+    #tapText {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
       color: #b3003c;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      transition: opacity 0.5s ease;
     }
 
     .envelope {
@@ -58,9 +59,10 @@
 
 <body>
 
-  <h1>💌 Tap to Open</h1>
+  <!-- Tap text -->
+  <div id="tapText">💌 Tap to Open</div>
 
-  <!-- Your Envelope Image -->
+  <!-- Envelope Image -->
   <img 
     src="https://i.imgur.com/3MgDsYW.png" 
     alt="Envelope" 
@@ -68,7 +70,7 @@
     id="envelope"
   />
 
-  <!-- Your Propose Image -->
+  <!-- Propose Image -->
   <img 
     src="https://i.imgur.com/eNxhqAV.jpeg" 
     alt="Propose Image" 
@@ -78,12 +80,12 @@
 
   <!-- Secret Message -->
   <div class="message" id="message">
-    साँझ बिहान तिम्रै याद आउँछ,  
-    मनभरि तिम्रै मुहार छाउँछ।  
+   साँझ बिहान तिम्रै याद आउँछ,
+मनभरि तिम्रै मुहार छाउँछ।
 
-    तिमी बिना यो जीवन अधुरो,  
-    सधैं रहोस् हाम्रो मायाको कुरो।   
-    
+तिमी बिना यो जीवन अधुरो,
+सधैं रहोस् हाम्रो मायाको कुरो।  
+
     मेरो प्यारी श्रीमतीलाई  
     Happy Propose Day ❤️
   </div>
@@ -92,11 +94,17 @@
     const envelope = document.getElementById("envelope");
     const img = document.getElementById("proposalImg");
     const msg = document.getElementById("message");
+    const tapText = document.getElementById("tapText");
 
     envelope.addEventListener("click", () => {
+      tapText.style.opacity = "0";      // Remove "Tap to Open"
       envelope.style.display = "none";  // Hide envelope
+
       img.style.opacity = "1";          // Show image
-      msg.style.opacity = "1";          // Show message
+
+      setTimeout(() => {
+        msg.style.opacity = "1";        // Show message
+      }, 600);
     });
   </script>
 
