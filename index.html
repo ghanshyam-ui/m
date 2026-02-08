@@ -79,13 +79,20 @@
       100% { transform: scale(0) rotate(20deg); opacity: 0; }
     }
 
-    /* Image + Message */
+    /* FINAL PAGE LAYOUT (matches your screenshot) */
+    .final-box {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
     .proposal-img {
-      width: clamp(200px, 70vw, 380px);
+      width: clamp(230px, 75vw, 420px);
       border-radius: 12px;
       opacity: 0;
       transition: opacity 1s ease;
-      display: none;
       box-shadow: 0 0 20px rgba(255,255,255,0.7);
     }
 
@@ -97,8 +104,8 @@
       opacity: 0;
       transition: opacity 1s ease;
       white-space: pre-line;
-      display: none;
       text-shadow: 0 0 10px rgba(255,255,255,0.7);
+      max-width: 90%;
     }
   </style>
 </head>
@@ -117,7 +124,7 @@
     }
   </script>
 
-  <!-- CENTERED BOX -->
+  <!-- FIRST PAGE -->
   <div class="center-box" id="centerBox">
     <div id="tapText">💌 Tap to Open</div>
 
@@ -129,29 +136,33 @@
     />
   </div>
 
-  <!-- Propose Image -->
-  <img 
-    src="https://i.imgur.com/eNxhqAV.jpeg"
-    alt="Propose Image"
-    class="proposal-img"
-    id="proposalImg"
-  />
+  <!-- SECOND PAGE (matches your screenshot) -->
+  <div class="final-box" id="finalBox">
 
-  <!-- Secret Message -->
-  <div class="message" id="message">
-    साँझ बिहान तिम्रै याद आउँछ,
-    मनभरि तिम्रै मुहार छाउँछ।
+    <img 
+      src="https://i.imgur.com/eNxhqAV.jpeg"
+      alt="Propose Image"
+      class="proposal-img"
+      id="proposalImg"
+    />
 
-    तिमी बिना यो जीवन अधुरो,
-    सधैं रहोस् हाम्रो मायाको कुरो।
+    <div class="message" id="message">
+      साँझ बिहान तिम्रै याद आउँछ,
+      मनभरि तिम्रै मुहार छाउँछ।
 
-    मेरो प्यारी श्रीमतीलाई
-    Happy Propose Day ❤️
+      तिमी बिना यो जीवन अधुरो,
+      सधैं रहोस् हाम्रो मायाको कुरो।
+
+      मेरो प्यारी श्रीमतीलाई
+      Happy Propose Day 💗
+    </div>
+
   </div>
 
   <script>
     const envelope = document.getElementById("envelope");
     const centerBox = document.getElementById("centerBox");
+    const finalBox = document.getElementById("finalBox");
     const img = document.getElementById("proposalImg");
     const msg = document.getElementById("message");
 
@@ -161,8 +172,7 @@
       setTimeout(() => {
         centerBox.style.display = "none";
 
-        img.style.display = "block";
-        msg.style.display = "block";
+        finalBox.style.display = "flex";
 
         img.style.opacity = "1";
 
