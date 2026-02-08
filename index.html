@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Propose Day</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin: 0.5rem 0;
+    }
+
+    p {
+      font-size: clamp(1rem, 3.5vw, 1.3rem);
+      max-width: 90%;
+      margin: 0.5rem auto 1rem;
+      line-height: 1.4;
+    }
+
+    .heart {
+      font-size: clamp(3rem, 10vw, 5rem);
+      animation: beat 1.2s infinite;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+
+    .btn {
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 50px;
+      background: #ff2e63;
+      color: white;
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
+      cursor: pointer;
+      margin-top: 1rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      transition: 0.2s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.96);
+    }
+
+    .message {
+      margin-top: 1.2rem;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      font-weight: 600;
+      max-width: 90%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="heart">❤️</div>
+
+  <h1>Happy Propose Day</h1>
+
+  <p>Sometimes words are not enough, but today feels like the right moment.</p>
+
+  <button class="btn" onclick="showMessage()">Tap to Reveal My Proposal</button>
+
+  <div class="message" id="message"></div>
+
+  <script>
+    const proposals = [
+      "You make my world brighter. Will you be mine?",
+      "I don’t know the perfect words, but I know how I feel. Will you say yes?",
+      "Life feels better with you in it. Will you be my special one?",
+      "Today, I want to ask… will you be mine forever?"
+    ];
+
+    function showMessage() {
+      const msg = proposals[Math.floor(Math.random() * proposals.length)];
+      document.getElementById("message").textContent = msg;
+    }
+  </script>
+</body>
+</html>
