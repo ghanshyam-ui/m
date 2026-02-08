@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Happy Propose Day</title>
+  <title>Propose Day Gift</title>
 
   <style>
     body {
@@ -14,85 +14,68 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      background: linear-gradient(135deg, #ff9a9e, #fecfef);
       font-family: "Segoe UI", sans-serif;
-      color: white;
       text-align: center;
       overflow: hidden;
     }
 
     h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      margin: 0.5rem 0;
-    }
-
-    p {
-      font-size: clamp(1rem, 3.5vw, 1.3rem);
-      max-width: 90%;
-      margin: 0.5rem auto 1rem;
-      line-height: 1.4;
-    }
-
-    .heart {
-      font-size: clamp(3rem, 10vw, 5rem);
-      animation: beat 1.2s infinite;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #b3003c;
       margin-bottom: 1rem;
     }
 
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.25); }
-    }
-
-    .btn {
-      padding: 0.8rem 1.6rem;
-      border: none;
-      border-radius: 50px;
-      background: #ff2e63;
-      color: white;
-      font-size: clamp(1rem, 3.5vw, 1.2rem);
+    .gift-box {
+      width: clamp(120px, 35vw, 200px);
       cursor: pointer;
-      margin-top: 1rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-      transition: 0.2s ease;
+      transition: transform 0.3s ease;
     }
 
-    .btn:active {
-      transform: scale(0.96);
+    .gift-box:active {
+      transform: scale(0.95);
     }
 
     .message {
-      margin-top: 1.2rem;
-      font-size: clamp(1.1rem, 4vw, 1.4rem);
-      font-weight: 600;
-      max-width: 90%;
+      margin-top: 1.5rem;
+      font-size: clamp(1.2rem, 4vw, 1.8rem);
+      font-weight: bold;
+      color: #7a003c;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      white-space: pre-line;
     }
   </style>
 </head>
 
 <body>
-  <div class="heart">❤️</div>
 
-  <h1>Happy Propose Day</h1>
+  <h1>🎁 Tap the Gift</h1>
 
-  <p>Sometimes words are not enough, but today feels like the right moment.</p>
+  <!-- Gift Box Image -->
+  <img 
+    src="https://i.imgur.com/7yUVEeC.png" 
+    alt="Gift Box" 
+    class="gift-box" 
+    id="giftBox"
+  />
 
-  <button class="btn" onclick="showMessage()">Tap to Reveal My Proposal</button>
-
-  <div class="message" id="message"></div>
+  <!-- Hidden Message -->
+  <div class="message" id="message">
+    
+    मेरो प्यारी श्रीमतीलाई  
+    Happy Propose Day ❤️
+  </div>
 
   <script>
-    const proposals = [
-      "You make my world brighter. Will you be mine?",
-      "I don’t know the perfect words, but I know how I feel. Will you say yes?",
-      "Life feels better with you in it. Will you be my special one?",
-      "Today, I want to ask… will you be mine forever?"
-    ];
+    const gift = document.getElementById("giftBox");
+    const msg = document.getElementById("message");
 
-    function showMessage() {
-      const msg = proposals[Math.floor(Math.random() * proposals.length)];
-      document.getElementById("message").textContent = msg;
-    }
+    gift.addEventListener("click", () => {
+      gift.style.display = "none";   // Hide gift box
+      msg.style.opacity = "1";       // Show message
+    });
   </script>
+
 </body>
 </html>
