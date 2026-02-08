@@ -61,12 +61,7 @@
     /* Envelope opening animation */
     .envelope {
       width: clamp(140px, 40vw, 230px);
-      cursor: pointer;
       transition: transform 0.4s ease;
-    }
-
-    .envelope:active {
-      transform: scale(0.9);
     }
 
     .open-animation {
@@ -79,7 +74,7 @@
       100% { transform: scale(0) rotate(20deg); opacity: 0; }
     }
 
-    /* FINAL PAGE LAYOUT (matches your screenshot) */
+    /* FINAL PAGE LAYOUT */
     .final-box {
       display: none;
       flex-direction: column;
@@ -110,7 +105,7 @@
   </style>
 </head>
 
-<body>
+<body id="fullScreen">
 
   <!-- Floating hearts -->
   <script>
@@ -136,7 +131,7 @@
     />
   </div>
 
-  <!-- SECOND PAGE (matches your screenshot) -->
+  <!-- SECOND PAGE -->
   <div class="final-box" id="finalBox">
 
     <img 
@@ -160,13 +155,14 @@
   </div>
 
   <script>
+    const fullScreen = document.getElementById("fullScreen");
     const envelope = document.getElementById("envelope");
     const centerBox = document.getElementById("centerBox");
     const finalBox = document.getElementById("finalBox");
     const img = document.getElementById("proposalImg");
     const msg = document.getElementById("message");
 
-    envelope.addEventListener("click", () => {
+    fullScreen.addEventListener("click", () => {
       envelope.classList.add("open-animation");
 
       setTimeout(() => {
